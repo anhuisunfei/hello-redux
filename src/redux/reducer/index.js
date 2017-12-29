@@ -1,14 +1,11 @@
-let comments=[
-  'hello1',
-  'hello2'
-]
+let comments = ['hello1', 'hello2']
 
-export const rootReducer = (state =comments , action) => {
+export const rootReducer = (state = comments, action) => {
   switch (action.type) {
-    case 'ACTION_TYPE':
-      return 
+    case 'ADD_COMMENT':
+      return [...state, action.comment]
     default:
       return state
   }
+  return state
 }
-

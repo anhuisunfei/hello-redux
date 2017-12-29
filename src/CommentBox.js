@@ -8,10 +8,10 @@ class CommentBox extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    let comments = this.state.comments.slice()
-    comments.push(this.commentInput.value)
-    this.setState({ comments: comments })
+    let comment = this.commentInput.value 
+    store.dispatch({type:'ADD_COMMENT',comment})
     this.commentInput.value = ''
+    console.log("handleSubmit",store.getState())
   }
 
   render() { 
