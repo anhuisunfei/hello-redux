@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import store from './redux/store'
 
 class CommentBox extends Component {
   state = {
@@ -13,10 +14,11 @@ class CommentBox extends Component {
     this.commentInput.value = ''
   }
 
-  render() {
-    let commentList = this.state.comments.map((item, i) => (
-      <li key={i}>{item}</li>
-    ))
+  render() { 
+    let commentList = store
+      .getState()
+      .reverse()
+      .map((item, i) => <li key={i}>{item}</li>)
     let commentForm = (
       <form onSubmit={this.handleSubmit}>
         <input type="text" ref={value => (this.commentInput = value)} />

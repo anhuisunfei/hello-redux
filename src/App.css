@@ -59,3 +59,7 @@ form button {
     outline: none;
     color: white;
 }
+
+.comment-box button:hover {
+    cursor: pointer;
+}
