@@ -5,16 +5,16 @@ import CommentBox from "./CommentBox";
 class Post extends Component {
  
   render() { 
-    return (
-      <div className="post">
+  
+    let postId=this.props.match.params.postId
+    return <div className="post">
         <div className="upper">
-          <PostBody />
+          <PostBody postId={postId} />
         </div>
         <div className="bottom">
-          <CommentBox />
+          <CommentBox postId={postId} />
         </div>
       </div>
-    );
   }
 }
 

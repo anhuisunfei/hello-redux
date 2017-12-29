@@ -25,7 +25,7 @@ class App extends Component {
           <Provider store={store}>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route path="/post" component={Post} />
+              <Route path="/post/:postId" component={Post} />
               <Route component={NotFound} />
             </Switch>
           </Provider>
