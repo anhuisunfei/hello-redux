@@ -1,10 +1,10 @@
-let comments = ['hello1', 'hello2']
+import {postReducer} from './posts'
+import {commentReducer} from './comments'
+import { combineReducers } from 'redux'
 
-export const rootReducer = (state = comments, action) => {
-  switch (action.type) {
-    case 'ADD_COMMENT':
-      return [...state, action.comment]
-    default:
-      return state
-  }
-}
+const rootReducer = combineReducers({
+  posts: postReducer,
+  comments: commentReducer
+})
+
+export default rootReducer
