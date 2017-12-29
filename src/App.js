@@ -3,7 +3,8 @@ import { BrowserRouter, Route, Link, Switch, Router } from "react-router-dom"
 import Home from './Home'
 import Post from './Post'
 import "./App.css"
-
+import store from './redux/store'
+import { Provider } from 'react-redux'
  
 
 class NotFound extends Component {
@@ -19,18 +20,17 @@ class NotFound extends Component {
 
 class App extends Component { 
   render() { 
-    return (
-      <BrowserRouter>
+    return <BrowserRouter>
         <div>
-          
-          <Switch> 
-            <Route exact   path="/" component={Home}/>
-            <Route path="/post" component={Post}/> 
-            <Route component={NotFound} />
-          </Switch>
+          <Provider store={store}>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/post" component={Post} />
+              <Route component={NotFound} />
+            </Switch>
+          </Provider>
         </div>
       </BrowserRouter>
-    )
   }
 }
 

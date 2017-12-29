@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
-
+import store from './redux/store'
+import { connect } from 'react-redux'
 class PostBody extends Component {
   render () {
-    return (
-      <div className="post-body">
-        PostBody
+    return <div className="post-body">
+        <div className="comment-num"> {this.props.comments.length}条评论</div>
       </div>
-    )
   }
 }
 
-export default PostBody
+const mapStateToProps = (state)=>({
+  comments:state
+})
+export default connect(mapStateToProps)(PostBody) 

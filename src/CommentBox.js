@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import store from './redux/store'
+import { connect } from 'react-redux'
 
 class CommentBox extends Component {
   state = {
@@ -8,15 +9,14 @@ class CommentBox extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    let comment = this.commentInput.value 
-    store.dispatch({type:'ADD_COMMENT',comment})
+    let comment = this.commentInput.value
+    store.dispatch({ type: 'ADD_COMMENT', comment })
     this.commentInput.value = ''
-    console.log("handleSubmit",store.getState())
+    console.log('handleSubmit', store.getState())
   }
 
-  render() { 
-    let commentList = store
-      .getState()
+  render() {
+    let commentList = this.props.comments
       .reverse()
       .map((item, i) => <li key={i}>{item}</li>)
     let commentForm = (
@@ -35,4 +35,8 @@ class CommentBox extends Component {
   }
 }
 
-export default CommentBox
+const mapStateToProps = state => ({
+  comments: state
+})
+
+export default connect(mapStateToProps)(CommentBox)

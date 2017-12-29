@@ -7,5 +7,4 @@ export const rootReducer = (state = comments, action) => {
     default:
       return state
   }
-  return state
 }
