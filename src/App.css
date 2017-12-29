@@ -65,11 +65,20 @@ form button {
     cursor: pointer;
 }
 
-.comment-num {
+.comment-num,
+.like-num {
     display: inline-block;
     padding: 5px 10px;
     background-color: rgba(0, 0, 0, .1);
     position: absolute;
     bottom: 10px;
+}
+
+.comment-num {
     right: 10px;
+}
+
+.like-num {
+    right: 100px;
+    cursor: pointer;
 }
